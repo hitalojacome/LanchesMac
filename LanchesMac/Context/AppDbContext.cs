@@ -9,4 +9,3 @@ public class AppDbContext : DbContext
     public DbSet<Categoria> Categorias { get; set; }
     public DbSet<Lanche> Lanches { get; set; }
 }
-
