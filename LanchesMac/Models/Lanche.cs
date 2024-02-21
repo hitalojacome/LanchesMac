@@ -13,19 +13,4 @@ public class Lanche
 
     public int CategoriaId { get; set; } // Chave estrangeira para a tabela de categoria
     public virtual Categoria Categoria { get; set; } // Propriedade de navegação
-
-    public Lanche(int lancheId, string? nome, string? descricaoCurta, string? descricaoDetalhada, decimal preco, string? imagemUrl, string? imagemThumbnailUrl, bool isLanchePreferido, bool emEstoque, int categoriaId, Categoria categoria)
-    {
-        LancheId = lancheId;
-        Nome = nome;
-        DescricaoCurta = descricaoCurta;
-        DescricaoDetalhada = descricaoDetalhada;
-        Preco = preco;
-        ImagemUrl = imagemUrl;
-        ImagemThumbnailUrl = imagemThumbnailUrl;
-        IsLanchePreferido = isLanchePreferido;
-        EmEstoque = emEstoque;
-        CategoriaId = categoriaId;
-        Categoria = categoria;
-    }
 }
