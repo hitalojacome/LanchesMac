@@ -16,7 +16,7 @@ namespace LanchesMac.Migrations
                 {
                     // Criando seus atributos
                     CategoriaId = table.Column<int>(type: "int", nullable: false) 
-                        .Annotation("SqlServer:Identity", "1, 1"), // PK Auto incrementável
+                        .Annotation("SqlServer:Identity", "1, 1"), // Auto incrementável
                     CategoriaNome = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Descricao = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false) // Os atributos seguem as regras do Data Annotation
                 },
