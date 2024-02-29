@@ -277,6 +277,8 @@ C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Mic
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
@@ -309,6 +311,7 @@ C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Sys
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Composition.Runtime.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Composition.TypedParts.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
@@ -492,6 +495,3 @@ C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\ref
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\LanchesMac.pdb
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\LanchesMac.genruntimeconfig.cache
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\ref\LanchesMac.dll
-C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
