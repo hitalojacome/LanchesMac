@@ -4,12 +4,18 @@
 <!-- Título da página -->
 <h2>Todos os Lanches</h2>
 <br />
-<!-- foreach para exibição dos registros -->
-@foreach (var lanche in Model) {
-    <div>
-        <h3>@lanche.Nome</h3>
-        <img src="@lanche.ImagemUrl">
-        <h4>Preço: @lanche.Preco.ToString("c")</h4>
-        <br />
+
+<div class="container">
+    <div class="row">
+        <!-- foreach para exibição dos registros -->
+        @foreach (var lanche in Model) {
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <img class="img-fluid" src="@lanche.ImagemUrl">
+                <h3>@lanche.Nome</h3>
+                <h4>Preço: @lanche.Preco.ToString("c")</h4>
+                <p>@lanche.DescricaoCurta</p>
+                <br />
+            </div>
+        }
     </div>
-}
+</div>
