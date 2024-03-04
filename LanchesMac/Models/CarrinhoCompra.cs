@@ -41,7 +41,10 @@ namespace LanchesMac.Models
 
         public void AdicionarAoCarrinho(Lanche lanche)
         {
-            var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(s => s.Lanche.LancheId == lanche.LancheId && s.CarrinhoCompraId == CarrinhoCompraId);
+            var carrinhoCompraItem = _context.CarrinhoCompraItens.SingleOrDefault(
+                s => s.Lanche.LancheId == lanche.LancheId && 
+                s.CarrinhoCompraId == CarrinhoCompraId
+                );
 
             if(carrinhoCompraItem == null)
             {
