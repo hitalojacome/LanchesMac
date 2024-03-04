@@ -27,8 +27,15 @@ public class Startup
         services.AddTransient<ILancheRepository, LancheRepository>();
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
+        // Tempo de vida vale por tudo
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
         // Adiciona o suporte para controladores MVC.
         services.AddControllersWithViews();
+        // Habilitando cache
+        services.AddMemoryCache();
+        // Habilitando a Session
+        services.AddSession();
     }
 
     // Este método é chamado pelo tempo de execução e é usado para configurar o pipeline de solicitação HTTP.
@@ -54,6 +61,9 @@ public class Startup
 
         // Configura o roteamento de solicitações HTTP.
         app.UseRouting();
+
+        // Ativando a Session
+        app.UseSession();
 
         // Habilita a autorização para controlar o acesso aos endpoints.
         app.UseAuthorization();
