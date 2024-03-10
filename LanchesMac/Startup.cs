@@ -1,4 +1,5 @@
 ﻿using LanchesMac.Context;
+using LanchesMac.Models;
 using LanchesMac.Repositories;
 using LanchesMac.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,9 @@ public class Startup
 
         // Tempo de vida vale por tudo
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+        // AddScoped trabalha a nivel de requisição
+        services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
         // Adiciona o suporte para controladores MVC.
         services.AddControllersWithViews();
