@@ -73,8 +73,13 @@ public class Startup
         app.UseAuthorization();
 
         // Configura os endpoints dos controladores MVC.
-        app.UseEndpoints(endpoints => 
+        app.UseEndpoints(endpoints =>
         {
+            endpoints.MapControllerRoute(
+                name: "categoriaFiltro",
+                pattern: "Lanche/{action}/{categoria?}",
+                defaults: new { Controller = "Lanche", Action = "List" });
+
             endpoints.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
