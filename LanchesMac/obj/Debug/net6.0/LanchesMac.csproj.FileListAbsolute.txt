@@ -495,3 +495,6 @@ C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\ref
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\LanchesMac.pdb
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\LanchesMac.genruntimeconfig.cache
 C:\Users\97528\Documents\dev\projects\LanchesMac\LanchesMac\obj\Debug\net6.0\ref\LanchesMac.dll
+C:\dev\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\dev\LanchesMac\LanchesMac\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\dev\LanchesMac\LanchesMac\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
