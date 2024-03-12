@@ -27,6 +27,7 @@ public class Startup
         // Adiciona os repositórios como serviços transitórios, o que significa que uma nova instância será criada para cada solicitação. DI
         services.AddTransient<ILancheRepository, LancheRepository>();
         services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+        services.AddTransient<IPedidoRepository, PedidoRepository>();
 
         // Tempo de vida vale por tudo
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
