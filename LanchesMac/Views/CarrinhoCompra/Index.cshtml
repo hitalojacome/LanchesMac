@@ -40,15 +40,15 @@
 
             <tfoot>
                 <tr>
-                    <td colspan="3" class="text-end">Total:</td>
+                    <td colspan="3" class="text-end"><strong>Total:</strong></td>
                     <td class="text-left">@Model.CarrinhoCompraTotal.ToString("c")</td>
                 </tr>
             </tfoot>
         </table>
 
-        <div class="text-end">
+        <div class="text-start">
             <div class="btn-group">
-                <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
+                <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Finalizar Pedido</a>
                 &nbsp;&nbsp;&nbsp;
                 <a class="btn btn-primary" asp-controller="Lanche" asp-action="List">Continuar Comprando</a>
             </div>
