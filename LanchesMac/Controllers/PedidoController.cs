@@ -24,6 +24,46 @@ public class PedidoController : Controller
     [HttpPost]
     public IActionResult Checkout (Pedido pedido)
     {
-        return View();
+        int totalItensPedido = 0;
+        decimal precoTotalPedido = 0.0m;
+
+        // Obter os itens do carrinho de compra
+        List<CarrinhoCompraItem> itens = _carrinhoCompra.GetCarrinhoCompraItens();
+        _carrinhoCompra.CarrinhoCompraItens = itens;
+
+        // Verifica se existem itens no pedido
+        if (_carrinhoCompra.CarrinhoCompraItens.Count == 0)
+        {
+            ModelState.AddModelError("", "Carrinho vazio.");
+        }
+
+        // Calcula o total de itens e o total do pedido
+        foreach (var item in itens)
+        {
+            totalItensPedido += item.Quantidade;
+            precoTotalPedido += (item.Lanche.Preco * item.Quantidade);
+        }
+
+        // Atribui os valores obtidos ao pedido
+        pedido.TotalItensPedido = totalItensPedido;
+        pedido.PedidoTotal = precoTotalPedido;
+
+        // Valida os dados do pedido
+        if (ModelState.IsValid)
+        {
+            // Cria um pedido e seus detalhes
+            _pedidoRepository.CriarPedido(pedido);
+
+            // Define mensagens ao cliente
+            ViewBag.CheckoutCompletoMensagem = "Agradecemos pelo seu pedido! :D";
+            ViewBag.TotalPedido = _carrinhoCompra.GetCarrinhoCompraTotal();
+
+            // Limpa o carrinho
+            _carrinhoCompra.LimparCarrinho();
+
+            // Exibe a view com dados do cliente e do pedido
+            return View("~/Views/Pedido/CheckoutCompleto.cshtml", pedido);
+        }
+        return View(pedido);
     }
 }
