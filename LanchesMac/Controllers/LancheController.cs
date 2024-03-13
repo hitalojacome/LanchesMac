@@ -2,56 +2,81 @@
 using LanchesMac.Repositories.Interfaces;
 using LanchesMac.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
-namespace LanchesMac.Controllers
+namespace LanchesMac.Controllers;
+public class LancheController : Controller
 {
-    public class LancheController : Controller
+    // Declaração de uma variável privada para armazenar a instância do repositório de lanches
+    private readonly ILancheRepository _lancheRepository;
+
+    // Construtor da classe LancheController que recebe uma instância de ILancheRepository
+    public LancheController(ILancheRepository lancheRepository)
     {
-        // Declaração de uma variável privada para armazenar a instância do repositório de lanches
-        private readonly ILancheRepository _lancheRepository;
+        // Atribui o argumento recebido ao campo privado
+        _lancheRepository = lancheRepository;
+    }
 
-        // Construtor da classe LancheController que recebe uma instância de ILancheRepository
-        public LancheController(ILancheRepository lancheRepository)
+    // Método de ação para listar os lanches
+    public IActionResult List(string categoria)
+    {
+        IEnumerable<Lanche> lanches;
+        string categoriaAtual = string.Empty;
+
+        if (string.IsNullOrEmpty(categoria))
         {
-            // Atribui o argumento recebido ao campo privado
-            _lancheRepository = lancheRepository;
+            lanches = _lancheRepository.Lanches.OrderBy(l => l.LancheId);
+            categoriaAtual = "Todos os lanches";
+        }
+        else
+        {
+            lanches = _lancheRepository.Lanches
+                .Where(l => l.Categoria.CategoriaNome.Equals(categoria))
+                .OrderBy(c => c.Nome);
+
+            categoriaAtual = categoria;
         }
 
-        // Método de ação para listar os lanches
-        public IActionResult List(string categoria)
+        var lancheListViewModel = new LancheListViewModel
         {
-            IEnumerable<Lanche> lanches;
-            string categoriaAtual = string.Empty;
+            Lanches = lanches,
+            CategoriaAtual = categoriaAtual
+        };
 
-            if (string.IsNullOrEmpty(categoria))
-            {
-                lanches = _lancheRepository.Lanches.OrderBy(l => l.LancheId);
-                categoriaAtual = "Todos os lanches";
-            }
+        return View(lancheListViewModel);
+    }
+
+    public IActionResult Details(int lancheId)
+    {
+        var lanche = _lancheRepository.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
+
+        return View(lanche);
+    }
+
+    public ViewResult Search(string searchString)
+    {
+        IEnumerable<Lanche> lanches;
+        string categoriaAtual = string.Empty;
+
+        if (string.IsNullOrEmpty(searchString))
+        {
+            lanches = _lancheRepository.Lanches.OrderBy(l => l.LancheId);
+            categoriaAtual = "Todos os lanches";
+        }
+        else
+        {
+            lanches = _lancheRepository.Lanches
+                .Where(l => l.Nome.ToLower().Contains(searchString.ToLower()));
+
+            if (lanches.Any())
+                categoriaAtual = "Lanches";
             else
-            {
-                lanches = _lancheRepository.Lanches
-                    .Where(l => l.Categoria.CategoriaNome.Equals(categoria))
-                    .OrderBy(c => c.Nome);
-
-                categoriaAtual = categoria;
-            }
-
-            var lancheListViewModel = new LancheListViewModel
-            {
-                Lanches = lanches,
-                CategoriaAtual = categoriaAtual
-            };
-            
-            return View(lancheListViewModel);
+                categoriaAtual = "Nenhum lanche foi encontrado";
         }
 
-        public IActionResult Details(int lancheId)
+        return View("~/Views/Lanche/List.cshtml", new LancheListViewModel
         {
-            var lanche = _lancheRepository.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
-
-            return View(lanche);
-        }
+                Lanches= lanches,
+                CategoriaAtual= categoriaAtual
+        });
     }
 }
