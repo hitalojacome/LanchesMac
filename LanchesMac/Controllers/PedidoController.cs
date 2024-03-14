@@ -1,7 +1,6 @@
 ﻿using LanchesMac.Models;
 using LanchesMac.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LanchesMac.Controllers;
 
@@ -64,6 +63,19 @@ public class PedidoController : Controller
 
             // Exibe a view com dados do cliente e do pedido
             return View("~/Views/Pedido/CheckoutCompleto.cshtml", pedido);
+        }
+        else
+        {
+            foreach (var modelState in ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    // Aqui você pode acessar as mensagens de erro
+                    var errorMessage = error.ErrorMessage;
+                    // Faça o que quiser com a mensagem de erro, como adicioná-la a um ViewBag
+                    ViewBag.ErrorMessage = errorMessage;
+                }
+            }
         }
         return View(pedido);
     }
