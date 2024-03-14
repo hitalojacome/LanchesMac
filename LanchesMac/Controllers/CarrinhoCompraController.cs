@@ -33,7 +33,7 @@ namespace LanchesMac.Controllers
 
         public RedirectToActionResult AdicionarItemNoCarrinhoCompra(int lancheId)
         {
-            var lancheSelecionado = _lancheRepository.Lanches.FirstOrDefault(p =>  p.LancheId == lancheId);
+            var lancheSelecionado = _lancheRepository.Lanches.FirstOrDefault(p => p.LancheId == lancheId);
 
             if (lancheSelecionado != null)
             {

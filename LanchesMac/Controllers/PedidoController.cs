@@ -1,6 +1,7 @@
 ﻿using LanchesMac.Models;
 using LanchesMac.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LanchesMac.Controllers;
 
@@ -22,7 +23,7 @@ public class PedidoController : Controller
     }
 
     [HttpPost]
-    public IActionResult Checkout (Pedido pedido)
+    public IActionResult Checkout(Pedido pedido)
     {
         int totalItensPedido = 0;
         decimal precoTotalPedido = 0.0m;

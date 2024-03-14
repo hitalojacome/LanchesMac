@@ -52,6 +52,23 @@ public class LancheController : Controller
         return View(lanche);
     }
 
+    public IActionResult Favoritos(int lancheId)
+    {
+        IEnumerable<Lanche> lanchesPreferidos;
+
+        lanchesPreferidos = _lancheRepository.Lanches
+                .Where(l => l.IsLanchePreferido.Equals(true))
+                .OrderBy(c => c.Nome);
+
+        var lancheListViewModel = new LancheListViewModel
+        {
+            Lanches = lanchesPreferidos,
+            CategoriaAtual = null
+        };
+
+        return View(lancheListViewModel);
+    }
+
     public ViewResult Search(string searchString)
     {
         IEnumerable<Lanche> lanches;
@@ -75,8 +92,8 @@ public class LancheController : Controller
 
         return View("~/Views/Lanche/List.cshtml", new LancheListViewModel
         {
-                Lanches= lanches,
-                CategoriaAtual= categoriaAtual
+            Lanches = lanches,
+            CategoriaAtual = categoriaAtual
         });
     }
 }

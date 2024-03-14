@@ -1,0 +1,16 @@
+﻿@model LancheListViewModel;
+
+<!-- Título da página -->
+<h2>Os queridinhos</h2>
+<br />
+
+<div class="container">
+    <div class="row">
+        <!-- foreach para exibição dos registros -->
+        @foreach (var lanche in Model.Lanches!)
+        {
+            // Declaração da partial view
+            <partial name="_LanchesResumo" for="@lanche" />
+        }
+    </div>
+</div>

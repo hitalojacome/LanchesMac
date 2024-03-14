@@ -17,18 +17,18 @@ public class CarrinhoCompra
     // PK que será atribuido um GUID
     public string CarrinhoCompraId { get; set; }
     // Lista de itens
-    public List<CarrinhoCompraItem>? CarrinhoCompraItens { get; set; }
+    public List<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
 
     public static CarrinhoCompra GetCarrinho(IServiceProvider services)
     {
         // Define uma sessão
-        ISession? session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext?.Session;
+        ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
 
         // Obtem um serviço do tipo do nosso contexto
         var context = services.GetService<AppDbContext>();
 
         // Obtem ou gera o Id do carrinho
-        var carrinhoId = session?.GetString("CarrinhoId") ?? Guid.NewGuid().ToString();
+        var carrinhoId = session.GetString("CarrinhoId") ?? Guid.NewGuid().ToString();
 
         // Atribui o id do carrinho na sessão
         session?.SetString("CarrinhoId", carrinhoId);
@@ -105,7 +105,7 @@ public class CarrinhoCompra
     public void LimparCarrinho()
     {
         var carrinhoItens = _context.CarrinhoCompraItens
-                            .Where(carrinho => carrinho.CarrinhoCompraId == CarrinhoCompraId);
+                            .Where(c => c.CarrinhoCompraId == CarrinhoCompraId);
 
         _context.CarrinhoCompraItens.RemoveRange(carrinhoItens);
         _context.SaveChanges();
@@ -120,4 +120,4 @@ public class CarrinhoCompra
 
         return total;
     }
-}    
+}

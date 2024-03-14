@@ -21,8 +21,10 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         // Adiciona o contexto do banco de dados utilizando o provedor Entity Framework Core com o SQL Server.
-        services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        services.AddDbContext<AppDbContext>
+            (
+                o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
 
         // Adiciona os repositórios como serviços transitórios, o que significa que uma nova instância será criada para cada solicitação. DI
         services.AddTransient<ILancheRepository, LancheRepository>();
