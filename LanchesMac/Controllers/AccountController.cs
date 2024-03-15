@@ -62,7 +62,7 @@ public class AccountController : Controller
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user,isPersistent: false);
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -70,5 +70,14 @@ public class AccountController : Controller
             }
         }
         return View(registroVM);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Logout()
+    {
+        HttpContext.Session.Clear();
+        HttpContext.User = null;
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
     }
 }
