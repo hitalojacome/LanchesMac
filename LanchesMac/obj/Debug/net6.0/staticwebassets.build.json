@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "anQ9GLNtPuLbNKxgpWFVxdyFMcN1CXkKnrXHjisNbNg=",
+  "Hash": "Z8QjLfRCl1jWo062O2+KTwYWe670Eyi2IqlfrOXPiIQ=",
   "Source": "LanchesMac",
   "BasePath": "_content/LanchesMac",
   "Mode": "Default",
@@ -585,6 +585,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\layout\\icons8-speaker-phone-50.png"
+    },
+    {
+      "Identity": "C:\\Users\\97528\\Documents\\dev\\projects\\LanchesMac\\LanchesMac\\wwwroot\\images\\loginjpg.jpg",
+      "SourceId": "LanchesMac",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\97528\\Documents\\dev\\projects\\LanchesMac\\LanchesMac\\wwwroot\\",
+      "BasePath": "_content/LanchesMac",
+      "RelativePath": "images/loginjpg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\loginjpg.jpg"
     },
     {
       "Identity": "C:\\Users\\97528\\Documents\\dev\\projects\\LanchesMac\\LanchesMac\\wwwroot\\images\\phone-app-icon.png",

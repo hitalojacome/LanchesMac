@@ -70,9 +70,9 @@ public class PedidoController : Controller
             {
                 foreach (var error in modelState.Errors)
                 {
-                    // Aqui você pode acessar as mensagens de erro
+                    // Acessa as mensagens de erro
                     var errorMessage = error.ErrorMessage;
-                    // Faça o que quiser com a mensagem de erro, como adicioná-la a um ViewBag
+                    // Atribui a mensagem de erro a um ViewBag
                     ViewBag.ErrorMessage = errorMessage;
                 }
             }
